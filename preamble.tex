@@ -1,0 +1,34 @@
+
+
+% --- Ngon ngu & Font ---
+\usepackage[utf8]{inputenc}       % Ma hoa (encoding) de go duoc Tieng Viet
+\usepackage[T5]{fontenc}          % Font encoding cho Tieng Viet
+\usepackage[vietnamese]{babel}    % Thiet lap cac quy tac Tieng Viet (vd: Chuong 1)
+
+% --- Toan hoc ---
+\usepackage{amsmath}              % Cac cong thuc toan hoc
+\usepackage{amssymb}   
+\usepackage{amsthm}
+\newtheorem{theorem}{Định lý}[chapter]
+\newtheorem{warning}{Cảnh báo}[section]
+\newtheorem{example}{Ví dụ}[section]           % Cac ky hieu toan hoc
+
+% --- Hinh anh & Mau sac ---
+\usepackage{graphicx}             % De chen hinh anh (\includegraphics)
+\usepackage{xcolor}               % De su dung mau sac
+
+% --- Layout & Hyperlink ---
+\usepackage{geometry}             % De can chinh le trang
+\usepackage[
+    unicode=true, 
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=red
+]{hyperref}                   % De tao hyperlink trong tai lieu
+
+% --- Thiet lap le trang (Tuy chon) ---
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+% --- Cac lenh tuy chinh khac ---
+% (Ban co the them cac \newtheorem, \newcommand... vao day)

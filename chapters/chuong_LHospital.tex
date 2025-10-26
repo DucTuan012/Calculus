@@ -1,0 +1,214 @@
+% =========================================================
+% TÊN FILE: chuong_LHospital.tex
+% CHỨC NĂNG: Nội dung chi tiết về Quy tắc L'Hôpital
+% PHIÊN BẢN: ĐÃ SỬA LỖI (example/proof)
+% =========================================================
+
+\chapter{Quy tắc L'Hôpital}
+
+Quy tắc L'Hôpital (phát âm là "Lô-pi-tan") là một công cụ cực kỳ mạnh mẽ trong giải tích, cho phép chúng ta tính toán các giới hạn của các dạng vô định, đặc biệt là $\frac{0}{0}$ và $\frac{\infty}{\infty}$.
+
+\section{Phát biểu Định lý}
+
+\begin{theorem}[Quy tắc L'Hôpital]
+Giả sử $f$ và $g$ là các hàm số khả vi trên một khoảng mở $I$ chứa $a$ (ngoại trừ có thể tại $a$), và $g'(x) \neq 0$ trên $I$ (ngoại trừ có thể tại $a$).
+
+Giả sử rằng:
+$$ \lim_{x \to a} f(x) = 0 \quad \text{và} \quad \lim_{x \to a} g(x) = 0 $$
+Hoặc
+$$ \lim_{x \to a} f(x) = \pm\infty \quad \text{và} \quad \lim_{x \to a} g(x) = \pm\infty $$
+(Nói cách khác, ta có dạng vô định $\frac{0}{0}$ hoặc $\frac{\infty}{\infty}$).
+
+Nếu giới hạn $\lim_{x \to a} \frac{f'(x)}{g'(x)}$ tồn tại (hữu hạn hoặc vô hạn), thì:
+$$ \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} $$
+\end{theorem}
+
+\noindent
+\textbf{Lưu ý:} Định lý này cũng áp dụng cho các giới hạn một phía ($x \to a^+$, $x \to a^-$) và các giới hạn ở vô cực ($x \to \infty$, $x \to -\infty$).
+
+\section{Chứng minh Định lý}
+
+Chúng ta sẽ chứng minh hai trường hợp chính của định lý. Cả hai chứng minh đều dựa trên một biến thể của Định lý Giá trị Trung bình (Mean Value Theorem), đó là \textbf{Định lý Giá trị Trung bình Cauchy}.
+
+\begin{theorem}[Định lý Giá trị Trung bình Cauchy]
+Nếu $f$ và $g$ là hai hàm số liên tục trên $[a, b]$ và khả vi trên $(a, b)$, đồng thời $g'(x) \neq 0$ với mọi $x \in (a, b)$, thì tồn tại một số $c \in (a, b)$ sao cho:
+$$ \frac{f'(c)}{g'(c)} = \frac{f(b) - f(a)}{g(b) - g(a)} $$
+\end{theorem}
+
+
+\subsection{\texorpdfstring{Trường hợp $\frac{0}{0}$}{Trường hợp 0/0}}
+
+Giả sử ta có $\lim_{x \to a} f(x) = 0$ và $\lim_{x \to a} g(x) = 0$.
+Để đơn giản hóa, chúng ta sẽ chứng minh cho trường hợp giới hạn bên phải ($x \to a^+$). Chứng minh cho $x \to a^-$ là tương tự.
+
+Vì $\lim_{x \to a^+} f(x) = 0$ và $\lim_{x \to a^+} g(x) = 0$, chúng ta có thể định nghĩa (hoặc định nghĩa lại) giá trị của $f(a) = 0$ và $g(a) = 0$. Điều này làm cho $f$ và $g$ liên tục trên một khoảng $[a, x]$ với $x > a$ và $x$ đủ gần $a$.
+
+Bây giờ, xét một $x$ bất kỳ trong một lân cận bên phải của $a$, tức là $x \in (a, a+\delta)$ với $\delta > 0$ đủ nhỏ.
+Áp dụng Định lý Giá trị Trung bình Cauchy cho $f$ và $g$ trên khoảng $[a, x]$:
+Tồn tại một số $c_x \in (a, x)$ (chúng ta viết $c_x$ để nhấn mạnh rằng $c$ phụ thuộc vào $x$) sao cho:
+$$ \frac{f'(c_x)}{g'(c_x)} = \frac{f(x) - f(a)}{g(x) - g(a)} $$
+
+Nhưng vì chúng ta đã định nghĩa $f(a) = 0$ và $g(a) = 0$, phương trình trở thành:
+$$ \frac{f'(c_x)}{g'(c_x)} = \frac{f(x) - 0}{g(x) - 0} = \frac{f(x)}{g(x)} $$
+
+Bây giờ, chúng ta xem xét điều gì xảy ra khi $x \to a^+$.
+Vì $c_x$ nằm kẹp giữa $a$ và $x$ (tức là $a < c_x < x$), theo Nguyên lý Kẹp (Squeeze Theorem), khi $x \to a^+$ thì $c_x$ cũng phải $\to a^+$.
+
+Do đó, chúng ta có thể lấy giới hạn của cả hai vế:
+$$ \lim_{x \to a^+} \frac{f(x)}{g(x)} = \lim_{x \to a^+} \frac{f'(c_x)}{g'(c_x)} $$
+
+Vì $c_x \to a^+$ khi $x \to a^+$, nên giới hạn bên phải chính là:
+$$ \lim_{c_x \to a^+} \frac{f'(c_x)}{g'(c_x)} $$
+
+Giả sử rằng giới hạn $\lim_{x \to a} \frac{f'(x)}{g'(x)} = L$ tồn tại. Khi đó:
+$$ \lim_{x \to a^+} \frac{f(x)}{g(x)} = \lim_{c_x \to a^+} \frac{f'(c_x)}{g'(c_x)} = L $$
+
+Kết hợp với chứng minh tương tự cho giới hạn bên trái ($x \to a^-$), ta có điều phải chứng minh:
+$$ \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} $$
+
+\subsection{\texorpdfstring{Trường hợp $\frac{\infty}{\infty}$}{Trường hợp Vô cực / Vô cực}}
+
+Trường hợp này phức tạp hơn và không thể sử dụng kỹ thuật "định nghĩa $f(a) = \infty$" đơn giản như trên. Chúng ta sẽ chứng minh cho $x \to a^+$.
+
+Giả sử $\lim_{x \to a^+} f(x) = \infty$, $\lim_{x \to a^+} g(x) = \infty$ và $\lim_{x \to a^+} \frac{f'(x)}{g'(x)} = L$ (với $L$ hữu hạn).
+
+\begin{proof}[Chứng minh chi tiết]
+Mục tiêu của chúng ta là chứng minh $\lim_{x \to a^+} \frac{f(x)}{g(x)} = L$. Theo định nghĩa của giới hạn, điều này có nghĩa là:
+$\forall \epsilon > 0$, $\exists \delta > 0$ sao cho nếu $a < x < a + \delta$ thì $\left| \frac{f(x)}{g(x)} - L \right| < \epsilon$.
+
+\textbf{Bước 1: Sử dụng giả thiết về $L$.}
+Vì $\lim_{x \to a^+} \frac{f'(x)}{g'(x)} = L$, nên với $\epsilon_1 = \frac{\epsilon}{2} > 0$, tồn tại $\delta_1 > 0$ sao cho nếu $a < t < a + \delta_1$ thì:
+$$ \left| \frac{f'(t)}{g'(t)} - L \right| < \epsilon_1 \implies L - \epsilon_1 < \frac{f'(t)}{g'(t)} < L + \epsilon_1 $$
+
+\textbf{Bước 2: Áp dụng Định lý Cauchy.}
+Bây giờ, chúng ta chọn và cố định một số $y$ sao cho $a < y < a + \delta_1$.
+Sau đó, chúng ta chọn một $x$ sao cho $a < x < y$.
+Áp dụng Định lý Giá trị Trung bình Cauchy cho $f$ và $g$ trên khoảng $[x, y]$:
+Tồn tại một $c \in (x, y)$ (lưu ý $c$ cũng nằm trong $(a, a+\delta_1)$) sao cho:
+$$ \frac{f(x) - f(y)}{g(x) - g(y)} = \frac{f'(c)}{g'(c)} $$
+
+Từ Bước 1, vì $c \in (a, a+\delta_1)$, ta có:
+$$ L - \epsilon_1 < \frac{f(x) - f(y)}{g(x) - g(y)} < L + \epsilon_1 $$
+
+\textbf{Bước 3: Biến đổi đại số (Đây là mấu chốt).}
+Chúng ta muốn $\frac{f(x)}{g(x)}$. Ta sẽ "tách" nó ra từ biểu thức trên.
+$$ \frac{f(x) - f(y)}{g(x) - g(y)} = \frac{f(x) \left( 1 - \frac{f(y)}{f(x)} \right)}{g(x) \left( 1 - \frac{g(y)}{g(x)} \right)} = \frac{f(x)}{g(x)} \cdot \frac{1 - \frac{f(y)}{f(x)}}{1 - \frac{g(y)}{g(x)}} $$
+
+Giải phương trình này để tìm $\frac{f(x)}{g(x)}$:
+$$ \frac{f(x)}{g(x)} = \left( \frac{f(x) - f(y)}{g(x) - g(y)} \right) \cdot \frac{1 - \frac{g(y)}{g(x)}}{1 - \frac{f(y)}{f(x)}} $$
+Đặt $R(x, y) = \frac{f(x) - f(y)}{g(x) - g(y)}$. Ta biết $L - \epsilon_1 < R(x, y) < L + \epsilon_1$.
+$$ \frac{f(x)}{g(x)} = R(x, y) \cdot \frac{1 - \frac{g(y)}{g(x)}}{1 - \frac{f(y)}{f(x)}} $$
+
+\textbf{Bước 4: Xét giới hạn khi $x \to a^+$.}
+Hãy nhớ rằng $y$ đang được \textbf{cố định}. Chúng ta cho $x \to a^+$.
+Vì $\lim_{x \to a^+} f(x) = \infty$ và $\lim_{x \to a^+} g(x) = \infty$, nên (với $f(y), g(y)$ là các hằng số):
+$$ \lim_{x \to a^+} \frac{f(y)}{f(x)} = 0 \quad \text{và} \quad \lim_{x \to a^+} \frac{g(y)}{g(x)} = 0 $$
+Do đó:
+$$ \lim_{x \to a^+} \frac{1 - \frac{g(y)}{g(x)}}{1 - \frac{f(y)}{f(x)}} = \frac{1 - 0}{1 - 0} = 1 $$
+
+Điều này có nghĩa là, khi $x$ tiến đủ gần $a$, biểu thức $\frac{f(x)}{g(x)}$ sẽ tiến rất gần $R(x, y)$.
+Nói cách khác, $\lim_{x \to a^+} \frac{f(x)}{g(x)}$ và $R(x, y)$ (với $R(x, y) = \frac{f'(c)}{g'(c)}$) sẽ cùng nằm trong khoảng $(L - \epsilon_1, L + \epsilon_1)$.
+
+\textbf{Bước 5: Kết luận chính thức.}
+Từ Bước 4, ta biết rằng $\lim_{x \to a^+} \left( \frac{1 - g(y)/g(x)}{1 - f(y)/f(x)} \right) = 1$.
+Do đó, tồn tại $\delta_2 > 0$ (với $\delta_2 < y - a$) sao cho nếu $a < x < a + \delta_2$, thì
+$$ \left| \frac{1 - \frac{g(y)}{g(x)}}{1 - \frac{f(y)}{f(x)}} - 1 \right| < \epsilon_1 $$
+và đồng thời (do $g(x) \to \infty$) $R(x, y)$ đủ gần với $\frac{f(x)}{g(x)}$.
+
+Kết hợp mọi thứ lại, với $a < x < a + \delta_2$:
+$$ \frac{f(x)}{g(x)} = R(x, y) \cdot \left( 1 + (\text{một số rất nhỏ}) \right) $$
+Vì $R(x, y)$ nằm trong $(L - \epsilon_1, L + \epsilon_1)$, và $\epsilon_1 = \epsilon/2$, nên $\frac{f(x)}{g(x)}$ sẽ nằm trong khoảng $(L - \epsilon, L + \epsilon)$ khi $x$ đủ gần $a$.
+
+Điều này hoàn thành chứng minh.
+\end{proof}
+
+\section{Các ví dụ Áp dụng}
+
+\begin{example}[Dạng $\frac{0}{0}$ cơ bản]
+Tính $\lim_{x \to 0} \frac{\sin(x)}{x}$.
+\begin{proof}
+Ta thấy $\lim_{x \to 0} \sin(x) = 0$ và $\lim_{x \to 0} x = 0$. Đây là dạng $\frac{0}{0}$.
+Áp dụng quy tắc L'Hôpital:
+$$ \lim_{x \to 0} \frac{\sin(x)}{x} \overset{L'H}{=} \lim_{x \to 0} \frac{(\sin(x))'}{(x)'} = \lim_{x \to 0} \frac{\cos(x)}{1} = \cos(0) = 1 $$
+\end{proof}
+\end{example}
+
+\begin{example}[Dạng $\frac{\infty}{\infty}$ cơ bản]
+Tính $\lim_{x \to \infty} \frac{e^x}{x^2}$.
+\begin{proof}
+Ta thấy $\lim_{x \to \infty} e^x = \infty$ và $\lim_{x \to \infty} x^2 = \infty$. Đây là dạng $\frac{\infty}{\infty}$.
+Áp dụng quy tắc L'Hôpital:
+$$ \lim_{x \to \infty} \frac{e^x}{x^2} \overset{L'H}{=} \lim_{x \to \infty} \frac{(e^x)'}{(x^2)'} = \lim_{x \to \infty} \frac{e^x}{2x} $$
+Giới hạn mới vẫn là dạng $\frac{\infty}{\infty}$. Ta tiếp tục áp dụng L'Hôpital:
+$$ \lim_{x \to \infty} \frac{e^x}{2x} \overset{L'H}{=} \lim_{x \to \infty} \frac{(e^x)'}{(2x)'} = \lim_{x \to \infty} \frac{e^x}{2} = \infty $$
+Vậy, giới hạn ban đầu bằng $\infty$.
+\end{proof}
+\end{example}
+
+\section{Các dạng vô định khác}
+
+Quy tắc L'Hôpital chỉ áp dụng trực tiếp cho $\frac{0}{0}$ và $\frac{\infty}{\infty}$. Các dạng khác phải được biến đổi về 1 trong 2 dạng này.
+
+\subsection{\texorpdfstring{Dạng $0 \cdot \infty$}{Dạng 0 * Vô cực}}
+Giả sử $\lim f(x) = 0$ và $\lim g(x) = \infty$. Ta biến đổi $f \cdot g$ như sau:
+$$ f \cdot g = \frac{f}{1/g} \quad (\text{dạng } \frac{0}{0}) $$
+hoặc
+$$ f \cdot g = \frac{g}{1/f} \quad (\text{dạng } \frac{\infty}{\infty}) $$
+
+\begin{example}
+Tính $\lim_{x \to 0^+} x \ln(x)$.
+\begin{proof}
+Đây là dạng $0 \cdot (-\infty)$. Ta biến đổi về dạng $\frac{\infty}{\infty}$:
+$$ \lim_{x \to 0^+} x \ln(x) = \lim_{x \to 0^+} \frac{\ln(x)}{1/x} $$
+Giới hạn này có dạng $\frac{-\infty}{\infty}$. Áp dụng L'Hôpital:
+$$ \lim_{x \to 0^+} \frac{\ln(x)}{1/x} \overset{L'H}{=} \lim_{x \to 0^+} \frac{(\ln(x))'}{(1/x)'} = \lim_{x \to 0^+} \frac{1/x}{-1/x^2} = \lim_{x \to 0^+} (-x) = 0 $$
+\end{proof}
+\end{example}
+
+\subsection{\texorpdfstring{Dạng $\infty - \infty$}{Dạng Vô cực - Vô cực}}
+Thường được biến đổi bằng cách quy đồng mẫu số hoặc nhân liên hợp.
+
+\subsection{Dạng \texorpdfstring{$1^\infty$}{1^Inf}, \texorpdfstring{$0^0$}{0^0}, \texorpdfstring{$\infty^0$}{Inf^0}}
+Các dạng này được giải quyết bằng cách lấy logarit tự nhiên.
+Giả sử ta cần tính $L = \lim_{x \to a} [f(x)]^{g(x)}$.
+1. Đặt $y = [f(x)]^{g(x)}$.
+2. Lấy logarit: $\ln(y) = g(x) \ln(f(x))$.
+3. Tính giới hạn: $\lim_{x \to a} \ln(y) = \lim_{x \to a} [g(x) \ln(f(x))]$.
+   Giới hạn này thường sẽ là dạng $0 \cdot \infty$, ta đưa về $\frac{0}{0}$ hoặc $\frac{\infty}{\infty}$ và dùng L'Hôpital.
+4. Giả sử $\lim_{x \to a} \ln(y) = K$.
+5. Khi đó, $L = \lim_{x \to a} y = \lim_{x \to a} e^{\ln(y)} = e^K$.
+
+\section{Cảnh báo khi sử dụng}
+
+\begin{warning}[Giới hạn của đạo hàm phải tồn tại]
+Quy tắc L'Hôpital chỉ nói rằng \textbf{NẾU} $\lim \frac{f'}{g'}$ tồn tại thì nó bằng $\lim \frac{f}{g}$.
+Nếu $\lim \frac{f'}{g'}$ không tồn tại, điều đó \textbf{KHÔNG} có nghĩa là $\lim \frac{f}{g}$ không tồn tại.
+
+\begin{example}
+Xét $\lim_{x \to \infty} \frac{x + \sin(x)}{x}$.
+\begin{proof}
+Giới hạn này có dạng $\frac{\infty}{\infty}$. Nếu ta áp dụng L'Hôpital:
+$$ \lim_{x \to \infty} \frac{(x + \sin(x))'}{(x)'} = \lim_{x \to \infty} \frac{1 + \cos(x)}{1} $$
+Giới hạn này không tồn tại (vì $\cos(x)$ dao động).
+
+Tuy nhiên, giới hạn ban đầu có thể được tính dễ dàng:
+$$ \lim_{x \to \infty} \frac{x + \sin(x)}{x} = \lim_{x \to \infty} \left( 1 + \frac{\sin(x)}{x} \right) = 1 + 0 = 1 $$
+(Vì $\sin(x)$ bị chặn và $\frac{1}{x} \to 0$).
+\end{proof}
+\end{example}
+\end{warning}
+
+\begin{warning}[Không áp dụng khi không vô định]
+Luôn phải kiểm tra xem giới hạn có phải dạng $\frac{0}{0}$ hay $\frac{\infty}{\infty}$ không. Áp dụng sai sẽ dẫn đến kết quả sai.
+
+\begin{example}
+Tính $\lim_{x \to 0} \frac{\sin(x)}{x+1}$.
+\begin{proof}
+Giới hạn này \textbf{không} vô định: $\lim \sin(x) = 0$ và $\lim (x+1) = 1$.
+Giới hạn đúng là: $\frac{0}{1} = 0$.
+
+Nếu áp dụng L'Hôpital (SAI LẦM):
+$$ \lim_{x \to 0} \frac{(\sin(x))'}{(x+1)'} = \lim_{x \to 0} \frac{\cos(x)}{1} = 1 \quad (\text{Kết quả SAI}) $$
+\end{proof}
+\end{example}
+\end{warning}

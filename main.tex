@@ -1,0 +1,69 @@
+\documentclass[12pt, a4paper, oneside]{book}
+
+% Goi file thiet lap
+\input{preamble.tex}
+
+% --- Thong tin cho metadata cua file PDF ---
+\title{CALCULUS}
+\author{Nguyen Duc Tuan}
+
+% --- Bat dau tai lieu ---
+\begin{document}
+
+% --- PHAN MO DAU ---
+\frontmatter 
+
+% --- BAT DAU TRANG BIA TUY CHINH ---
+\begin{titlepage}
+    \centering % Can giua tat ca noi dung
+    
+    
+    % --- Logo Truong ---
+    \includegraphics[width=0.2\textwidth]{images/logo-hoc-vien-ky-thuat-quan-su.jpg}
+    \includegraphics[width=0.2\textwidth]{images/InICT.png}
+    \vspace{0.5cm} % Khoang cach sau logo
+
+    % --- Ten Truong (VIET KHONG DAU HOAC TIENG ANH) ---
+    {\large Le Quy Don Technical University} \\
+    \vspace{0.25cm}
+    {\large Institute of Information and Communication Technology}
+    \vspace{0.2cm} 
+   
+    
+    \vfill % Day noi dung xuong giua trang
+    
+    % --- Ten Sach ---
+    {\Huge \bfseries CALCULUS} \\
+    \vspace{0.5cm}
+    {\Large \itshape My calculus notebook} \\
+    \vspace{1cm}
+    {\large Version 1.0} \\ % Phien ban 
+    
+    \vfill % Day noi dung xuong phia duoi
+    
+    % --- Tac gia & Thong tin ---
+    {\Large \bfseries Author: Nguyen Duc Tuan}
+    \vspace{0.5cm}
+    
+    \begin{tabular}{l l}
+        \bfseries Major: & Computer Science - Artificial Intelligence \\
+        \bfseries School: & Le Quy Don Technical University \\
+        \bfseries Email: & nguyenductuan07102007@gmail.com \\
+    \end{tabular}
+    
+    \vspace{1cm}
+    
+    % --- Ngay thang ---
+    {\large \today}
+
+\end{titlepage}
+
+% --- Trang Muc Luc ---
+\tableofcontents 
+
+% --- PHAN NOI DUNG CHINH ---
+\mainmatter 
+\input{chapters/chuong_LHospital.tex}
+
+
+\end{document}
