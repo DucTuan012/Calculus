@@ -1,0 +1,43 @@
+# Tên của quy trình tự động hóa
+name: Build LaTeX PDF
+
+# Kích hoạt khi có lệnh push vào nhánh 'main'
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Bước 1: Lấy mã nguồn (code .tex) của bạn về
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+
+      # Bước 2: Biên dịch LaTeX
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          # Tệp .tex gốc (master file) của bạn
+          root_file: main.tex
+          # Trình biên dịch (dùng latexmk để tự động chạy nhiều lần)
+          compiler: latexmk
+          # Các đối số
+          args: -pdf -shell-escape -file-line-error
+
+      # Bước 3: Tự động tạo bản Release và đính kèm PDF
+      - name: Create Release and Upload PDF
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          # Token bí mật, cứ để nguyên
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          # Tên của "phiên bản"
+          automatic_release_tag: "latest"
+          # Đánh dấu đây là bản chính thức
+          prerelease: false
+          # Tiêu đề của phiên bản
+          title: "Bản PDF mới nhất"
+          # Tệp tin cần upload (nó sẽ tìm tệp main.pdf)
+          files: |
+            *.pdf
